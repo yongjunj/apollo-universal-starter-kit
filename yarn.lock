@@ -5704,9 +5704,9 @@ graphql-anywhere@^4.1.0-alpha.0, graphql-anywhere@^4.1.1:
   dependencies:
     apollo-utilities "^1.0.4"
 
-graphql-autharoo@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/graphql-autharoo/-/graphql-autharoo-1.0.5.tgz#4d41e95faeec12e6306c7e976bd8fe244a3b88ff"
+graphql-autharoo@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/graphql-autharoo/-/graphql-autharoo-1.0.6.tgz#28246257948b02f52354aa2e68155da10fa91d1d"
 
 graphql-extensions@^0.0.x:
   version "0.0.7"
