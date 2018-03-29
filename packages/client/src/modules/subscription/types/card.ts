@@ -10,15 +10,13 @@ interface CardUpdateOptions extends Card {
   token: string;
 }
 
-interface CardInfo extends Card {
-  loading: boolean;
-}
-
 /* ---  TYPES --- */
 type UpdateCardFn = (options: CardUpdateOptions) => Promise<boolean>;
 
 /* --- COMPONENT PROPS --- */
-
+interface CardInfoProps extends Card {
+  loading: boolean;
+}
 /**
  * Mutation props
  */
@@ -33,5 +31,5 @@ interface CardQueryResult {
   subscriptionCardInfo: Card;
 }
 
-export { CardInfo, CardUpdateOptions };
+export { CardInfoProps, CardUpdateOptions };
 export { CardOperation, CardQueryResult };

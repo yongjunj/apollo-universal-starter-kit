@@ -45,4 +45,4 @@ const withCardInfo = (Component: any) =>
     }
   });
 
-export { withCardUpdating };
+export { withCardUpdating, withCardInfo };
