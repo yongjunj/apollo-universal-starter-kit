@@ -1,5 +1,9 @@
 import { ImageFile } from 'react-dropzone';
 
+/* --- TYPES --- */
+type UploadFilesFn = (files: File[]) => Promise<boolean | Error>;
+type RemoveFileFn = (id: number) => Promise<boolean | Error>;
+
 /* --- ENTITIES --- */
 // tslint:disable-next-line:no-empty-interface
 interface File extends ImageFile {}
@@ -11,16 +15,10 @@ interface Error {
   error: string;
 }
 
-/**
- * Types
- */
-type UploadFilesFn = (files: File[]) => Promise<boolean | Error>;
-type RemoveFileFn = (id: number) => Promise<boolean | Error>;
-
 /* --- COMPONENT STATE --- */
-interface UploadState {
-  error: string | null;
-}
+// tslint:disable-next-line:no-empty-interface
+interface UploadState extends Error {}
+
 /* --- COMPONENT PROPS --- */
 
 /**

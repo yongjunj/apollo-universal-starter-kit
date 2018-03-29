@@ -4,13 +4,13 @@ import Dropzone from 'react-dropzone';
 import filesize from 'filesize';
 import { PageLayout, Row, Col, Table, Button, Alert } from '../../common/components/web';
 import settings from '../../../../../../settings';
-import { UploadProps, UploadState, UploadFilesFn, RemoveFileFn, File } from '../types';
+import { UploadProps, UploadState, UploadFilesFn, File } from '../types';
 
 export default class UploadView extends React.PureComponent<UploadProps, UploadState> {
   constructor(props: UploadProps) {
     super(props);
     this.state = {
-      error: null
+      error: ''
     };
   }
 
@@ -31,7 +31,7 @@ export default class UploadView extends React.PureComponent<UploadProps, UploadS
     if (result && result.error) {
       this.setState({ error: result.error });
     } else {
-      this.setState({ error: null });
+      this.setState({ error: '' });
     }
   };
 
@@ -41,7 +41,7 @@ export default class UploadView extends React.PureComponent<UploadProps, UploadS
     if (result && result.error) {
       this.setState({ error: result.error });
     } else {
-      this.setState({ error: null });
+      this.setState({ error: '' });
     }
   };
 
@@ -49,7 +49,7 @@ export default class UploadView extends React.PureComponent<UploadProps, UploadS
     const { files, uploadFiles } = this.props;
     const { error } = this.state;
 
-    const columns = [
+    const columns: any = [
       {
         title: 'Name',
         dataIndex: 'name',

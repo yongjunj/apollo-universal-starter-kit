@@ -45,7 +45,7 @@ export default class PostList extends React.PureComponent<PostProps, any> {
         </PageLayout>
       );
     } else {
-      const columns = [
+      const columns: any = [
         {
           title: 'Title',
           dataIndex: 'title',

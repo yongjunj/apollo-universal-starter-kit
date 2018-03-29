@@ -5,7 +5,7 @@ import FILES_QUERY from './FilesQuery.graphql';
 import UPLOAD_FILES from './UploadFiles.graphql';
 import REMOVE_FILE from './RemoveFile.graphql';
 
-import { UploadOption, UploadQueryResult } from '../types';
+import { UploadOption, UploadQueryResult, File } from '../types';
 
 const withFiles = (Component: any) =>
   graphql(FILES_QUERY, {
@@ -16,6 +16,7 @@ const withFiles = (Component: any) =>
     },
     props({ data: { loading, error, files, refetch } }: OptionProps<any, UploadQueryResult>) {
       if (error) {
+        throw new ApolloError(error);
       }
       return { loading, files, refetch };
     }
@@ -24,7 +25,7 @@ const withFiles = (Component: any) =>
 const withFilesUploading = (Component: any) =>
   graphql(UPLOAD_FILES, {
     props: ({ ownProps: { refetch }, mutate }: OptionProps<any, UploadOption>) => ({
-      uploadFiles: async (files: any) => {
+      uploadFiles: async (files: File[]) => {
         try {
           const { data: { uploadFiles } } = await mutate({
             variables: { files }
