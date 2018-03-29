@@ -6,7 +6,6 @@ import Subscription from './containers/Subscription';
 import SubscribersOnly from './containers/SubscribersOnly';
 import UpdateCard from './containers/UpdateCard.web';
 import { SubscriberRoute } from './containers/Auth';
-import reducers from './reducers';
 import settings from '../../../../../settings';
 
 import Feature from '../connector.web';
@@ -28,6 +27,5 @@ export default new Feature({
         </MenuItem>
       ]
     : [],
-  reducer: { subscription: reducers },
   scriptsInsert: 'https://js.stripe.com/v3/'
 });
