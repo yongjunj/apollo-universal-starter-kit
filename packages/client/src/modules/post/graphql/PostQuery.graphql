@@ -1,5 +1,5 @@
 #import "./Post.graphql"
-#import "../comment/Comment.graphql"
+#import "./Comment.graphql"
 
 query post($id: Int!) {
   post(id: $id) {

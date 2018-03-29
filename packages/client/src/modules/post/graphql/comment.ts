@@ -1,8 +1,8 @@
 import { graphql, compose, OptionProps } from 'react-apollo';
 import update from 'immutability-helper';
 
-import { Comment, CommentOperation, PostQueryResult, CommentQueryResult, PostCommentsProps } from '../../types';
-import { SubscriptionResult } from '../../../../../../common/types';
+import { Comment, CommentOperation, PostQueryResult, CommentQueryResult, PostCommentsProps } from '../types/index';
+import { SubscriptionResult } from '../../../../../common/types/index';
 
 import ADD_COMMENT from './AddComment.graphql';
 import EDIT_COMMENT from './EditComment.graphql';

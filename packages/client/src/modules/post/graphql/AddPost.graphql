@@ -1,5 +1,5 @@
 #import "./Post.graphql"
-#import "../comment/Comment.graphql"
+#import "./Comment.graphql"
 
 mutation addPost($input: AddPostInput!) {
   addPost(input: $input) {

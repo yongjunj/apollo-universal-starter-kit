@@ -2,8 +2,8 @@ import { ApolloError } from 'apollo-client';
 import { graphql, OptionProps } from 'react-apollo';
 import update from 'immutability-helper';
 
-import { Post, PostQueryResult, PostOperation, PostProps } from '../../types';
-import { Edge, SubscriptionResult, ApolloItem } from '../../../../../../common/types';
+import { Post, PostQueryResult, PostOperation, PostProps } from '../types/index';
+import { Edge, SubscriptionResult, ApolloItem } from '../../../../../common/types/index';
 
 import POSTS_QUERY from './PostsQuery.graphql';
 import DELETE_POST from './DeletePost.graphql';
