@@ -33,5 +33,5 @@ interface CardQueryResult {
   subscriptionCardInfo: Card;
 }
 
-export { CardInfo };
+export { CardInfo, CardUpdateOptions };
 export { CardOperation, CardQueryResult };

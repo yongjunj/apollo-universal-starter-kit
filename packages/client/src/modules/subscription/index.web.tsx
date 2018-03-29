@@ -4,7 +4,7 @@ import { Route, NavLink } from 'react-router-dom';
 import { MenuItem } from '../../modules/common/components/web';
 import Subscription from './containers/Subscription';
 import SubscribersOnly from './containers/SubscribersOnly';
-import UpdateCard from './containers/UpdateCard';
+import UpdateCard from './containers/UpdateCard.web';
 import { SubscriberRoute } from './containers/Auth';
 import reducers from './reducers';
 import settings from '../../../../../settings';
