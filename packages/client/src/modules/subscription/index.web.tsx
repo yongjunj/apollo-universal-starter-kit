@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
 
 import { MenuItem } from '../../modules/common/components/web';
-import Subscription from './containers/Subscription';
+import Subscription from './containers/Subscription.web';
 import SubscribersOnly from './containers/SubscribersOnly';
 import UpdateCard from './containers/UpdateCard.web';
 import { SubscriberRoute } from './containers/Auth';
