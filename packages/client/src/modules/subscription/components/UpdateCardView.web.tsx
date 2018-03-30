@@ -1,31 +1,28 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { Elements } from 'react-stripe-elements';
 import { LayoutCenter } from '../../common/components';
 import { PageLayout } from '../../common/components/web';
 
-import SubscriptionCardForm from './SubscriptionCardForm';
+import SubscriptionCardForm from './SubscriptionCardForm.web';
 import settings from '../../../../../../settings';
+import { CardInfoProps, UpdateCardFn, CardOptions } from '../types';
+import { Error } from '../../../../../common/types';
 
-export default class UpdateCardView extends React.Component {
-  static propTypes = {
-    updateCard: PropTypes.func.isRequired
-  };
-
-  onSubmit = updateCard => async values => {
-    const result = await updateCard(values);
+export default class UpdateCardView extends React.Component<CardInfoProps, any> {
+  public onSubmit = (updateCard: UpdateCardFn) => async (values: CardOptions) => {
+    const result: any = await updateCard(values);
 
     if (result.errors) {
-      let submitError = {
+      const submitError: any = {
         _error: 'Update failed!'
       };
-      result.errors.map(error => (submitError[error.field] = error.message));
+      result.errors.map((error: Error) => (submitError[error.field] = error.message));
       throw submitError;
     }
   };
 
-  render() {
+  public render() {
     const { updateCard } = this.props;
 
     const renderMetaData = () => (
