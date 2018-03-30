@@ -25,15 +25,6 @@ interface CardValues {
   name: string;
 }
 
-interface CardFormProps {
-  action?: string;
-  submitting?: boolean;
-  onSubmit: (options?: any) => void;
-  stripe?: any;
-}
-
-// tslint:disable-next-line:no-empty-interface
-interface UpdateCardProps extends CardOperation {}
 /**
  * Mutation props
  */
@@ -46,6 +37,16 @@ interface CardOperation {
  */
 interface CardQueryResult {
   subscriptionCardInfo: Card;
+}
+
+// tslint:disable-next-line:no-empty-interface
+interface UpdateCardProps extends CardOperation {}
+
+interface CardFormProps {
+  action?: string;
+  submitting?: boolean;
+  onSubmit: (options?: any) => void;
+  stripe?: any;
 }
 
 export { UpdateCardFn };
