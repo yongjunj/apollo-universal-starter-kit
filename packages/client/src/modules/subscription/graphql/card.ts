@@ -4,12 +4,12 @@ import UPDATE_CARD from './UpdateCard.graphql';
 import CARD_INFO from './CardInfoQuery.graphql';
 import CARD_INFO_QUERY from './CardInfoQuery.graphql';
 
-import { CardOperation, CardQueryResult, CardUpdateOptions } from '../types';
+import { CardOperation, CardQueryResult, CardOptions } from '../types';
 
 const withCardUpdating = (Component: any) =>
   graphql(UPDATE_CARD, {
     props: ({ ownProps: { history }, mutate }: OptionProps<any, CardOperation>) => ({
-      updateCard: async ({ token, expiryMonth, expiryYear, last4, brand }: CardUpdateOptions) => {
+      updateCard: async ({ token, expiryMonth, expiryYear, last4, brand }: CardOptions) => {
         try {
           const { data: { updateCard } }: any = await mutate({
             variables: { input: { token, expiryMonth, expiryYear, last4, brand } },

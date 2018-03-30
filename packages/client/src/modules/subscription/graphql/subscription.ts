@@ -3,13 +3,14 @@ import { graphql, OptionProps } from 'react-apollo';
 import SUBSCRIBE from './Subscribe.graphql';
 import SUBSCRIPTION_QUERY from './SubscriptionQuery.graphql';
 import CARD_INFO from './CardInfoQuery.graphql';
+import NUMBER_QUERY from './SubscribersOnlyNumberQuery.graphql';
 
-import { CardOperation, CardUpdateOptions } from '../types';
+import { SubscriptionOperation, CardOptions, SubscriptionsOnlyResult } from '../types';
 
 const withSubscribing = (Component: any) =>
   graphql(SUBSCRIBE, {
-    props: ({ ownProps: { history, navigation }, mutate }: OptionProps<any, CardOperation>) => ({
-      subscribe: async ({ token, expiryMonth, expiryYear, last4, brand }: CardUpdateOptions) => {
+    props: ({ ownProps: { history, navigation }, mutate }: OptionProps<any, SubscriptionOperation>) => ({
+      subscribe: async ({ token, expiryMonth, expiryYear, last4, brand }: CardOptions) => {
         try {
           const { data: { subscribe } }: any = await mutate({
             variables: { input: { token, expiryMonth, expiryYear, last4, brand } },
@@ -41,4 +42,12 @@ const withSubscribing = (Component: any) =>
     })
   });
 
-export { withSubscribing };
+const withSubscribersOnly = (Component: any) =>
+  graphql(NUMBER_QUERY, {
+    options: { fetchPolicy: 'network-only' },
+    props({ data: { loading, subscribersOnlyNumber } }: OptionProps<any, SubscriptionsOnlyResult>) {
+      return { loading, number: subscribersOnlyNumber && subscribersOnlyNumber.number };
+    }
+  });
+
+export { withSubscribing, withSubscribersOnly };
