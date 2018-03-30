@@ -1,33 +1,31 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { Elements } from 'react-stripe-elements';
 
 import { LayoutCenter, clientOnly } from '../../common/components';
 import { PageLayout } from '../../common/components/web';
-import SubscriptionCardForm from './SubscriptionCardForm';
+import SubscriptionCardForm from './SubscriptionCardForm.web';
 import settings from '../../../../../../settings';
+
+import { SubscriptionProps, CardOptions, UpdateCardFn as SubscribeFn } from '../types';
+import { Error } from '../../../../../common/types';
 
 const ElementsClientOnly = clientOnly(Elements);
 
-export default class SubscriptionView extends React.Component {
-  static propTypes = {
-    subscribe: PropTypes.func.isRequired
-  };
-
-  onSubmit = subscribe => async values => {
-    const result = await subscribe(values);
+export default class SubscriptionView extends React.Component<SubscriptionProps, any> {
+  public onSubmit = (subscribe: SubscribeFn) => async (values: CardOptions) => {
+    const result: any = await subscribe(values);
 
     if (result && result.errors) {
-      let submitError = {
+      const submitError = {
         _error: 'Transaction failed!'
       };
-      result.errors.map(error => (submitError[error.field] = error.message));
+      result.errors.map((error: Error) => (submitError[error.field] = error.message));
       throw submitError;
     }
   };
 
-  render() {
+  public render() {
     const { subscribe } = this.props;
 
     const renderMetaData = () => (
