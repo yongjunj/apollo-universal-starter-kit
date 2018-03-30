@@ -1,22 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Button, Alert, CardGroup, CardTitle, CardText } from '../../common/components/web';
 
-export default class CancelSubscriptionView extends React.Component {
-  static propTypes = {
-    loading: PropTypes.bool,
-    active: PropTypes.bool,
-    cancel: PropTypes.func.isRequired
-  };
+import { CancelSubscriptionViewState, SubscriptionNavigationProps } from '../types';
 
-  state = {
-    cancelling: false,
-    errors: null
-  };
+export default class CancelSubscriptionView extends React.Component<
+  SubscriptionNavigationProps,
+  CancelSubscriptionViewState
+> {
+  constructor(props: SubscriptionNavigationProps) {
+    super(props);
+    this.state = {
+      cancelling: false,
+      errors: null
+    };
+  }
 
-  onClick = async () => {
+  public onClick = async () => {
     this.setState({ cancelling: true });
-    const { errors } = await this.props.cancel();
+    const { errors }: any = await this.props.cancel();
     if (errors) {
       this.setState({
         cancelling: false,
@@ -25,11 +26,13 @@ export default class CancelSubscriptionView extends React.Component {
     }
   };
 
-  render() {
+  public render() {
     const { loading, active } = this.props;
     const { errors } = this.state;
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) {
+      return <p>Loading...</p>;
+    }
 
     return (
       <CardGroup>

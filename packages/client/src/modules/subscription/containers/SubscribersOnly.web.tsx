@@ -1,7 +1,7 @@
 import React from 'react';
 import { compose } from 'react-apollo';
 
-import SubscribersOnlyView from '../components/SubscribersOnlyView';
+import SubscribersOnlyView from '../components/SubscribersOnlyView.web';
 import { SubscribersOnlyProps } from '../types';
 import { withSubscribersOnly } from '../graphql';
 

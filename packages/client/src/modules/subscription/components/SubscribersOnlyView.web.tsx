@@ -1,19 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { PageLayout } from '../../common/components/web';
 
-const SubscribersOnlyView = ({ loading, number }) => {
+import { SubscribersOnlyProps } from '../types';
+
+// TODO fix ts-lint error
+// tslint:disable-next-line:variable-name
+const SubscribersOnlyView = ({ loading, number }: SubscribersOnlyProps) => {
   return (
     <PageLayout>
       <h1>Private</h1>
       <p>Your magic number is {loading ? 'loading...' : number}.</p>
     </PageLayout>
   );
-};
-
-SubscribersOnlyView.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  number: PropTypes.number
 };
 
 export default SubscribersOnlyView;

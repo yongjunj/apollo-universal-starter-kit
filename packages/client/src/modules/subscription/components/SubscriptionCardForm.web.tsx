@@ -1,28 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withFormik } from 'formik';
+import { withFormik, FormikProps } from 'formik';
 import { CardElement, injectStripe } from 'react-stripe-elements';
 import Field from '../../../utils/FieldAdapter';
 import { Form, RenderField, Button, Alert, Label } from '../../common/components/web';
 import { required, validateForm } from '../../../../../common/validation';
+import { CardValues, CardFormProps } from '../types';
 
 const commentFormSchema = {
   name: [required]
 };
 
-const validate = values => validateForm(values, commentFormSchema);
+const validate = (values: CardValues) => validateForm(values, commentFormSchema);
 
-class SubscriptionCardForm extends React.Component {
-  static propTypes = {
-    submitting: PropTypes.bool,
-    action: PropTypes.string.isRequired,
-    error: PropTypes.string,
-    handleSubmit: PropTypes.func,
-    onSubmit: PropTypes.func,
-    values: PropTypes.object
-  };
-
-  render() {
+class SubscriptionCardForm extends React.Component<CardFormProps & FormikProps<CardValues>, any> {
+  public render() {
     const { handleSubmit, submitting, action, error, values } = this.props;
     return (
       <Form name="subscription" onSubmit={handleSubmit}>
@@ -45,14 +36,15 @@ class SubscriptionCardForm extends React.Component {
   }
 }
 
-const SubscriptionFormWithFormik = withFormik({
+const SubscriptionFormWithFormik = withFormik<CardFormProps, CardValues>({
   mapPropsToValues: () => ({ name: '' }),
   async handleSubmit(values, { resetForm, props }) {
-    const onSubmitForm = async ({ name }) => {
+    const onSubmitForm = async ({ name }: any) => {
       const { stripe, onSubmit } = props;
       const { token, error } = await stripe.createToken({ name });
-      if (error) return;
-
+      if (error) {
+        return;
+      }
       const { id, card: { exp_month, exp_year, last4, brand } } = token;
 
       await onSubmit({

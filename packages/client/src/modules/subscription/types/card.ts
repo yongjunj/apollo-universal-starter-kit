@@ -21,6 +21,17 @@ interface CardInfoProps extends Card, CardOperation {
   loading: boolean;
 }
 
+interface CardValues {
+  name: string;
+}
+
+interface CardFormProps {
+  action?: string;
+  submitting?: boolean;
+  onSubmit: (options?: any) => void;
+  stripe?: any;
+}
+
 // tslint:disable-next-line:no-empty-interface
 interface UpdateCardProps extends CardOperation {}
 /**
@@ -38,5 +49,6 @@ interface CardQueryResult {
 }
 
 export { UpdateCardFn };
+export { CardValues, CardFormProps };
 export { CardInfoProps, CardOptions, UpdateCardProps };
 export { CardOperation, CardQueryResult };

@@ -9,6 +9,12 @@ interface SubscriptionOptions extends CardOptions {}
 /* ---  TYPES --- */
 type Cancel = () => Promise<boolean | Errors>;
 
+/* --- COMPONENT STATE --- */
+interface CancelSubscriptionViewState {
+  cancelling: boolean;
+  errors: any;
+}
+
 /* --- COMPONENT PROPS --- */
 
 /**
@@ -22,12 +28,14 @@ interface SubscriptionOperation {
 /**
  * Query props
  */
-interface SubscribersOnlyProps extends QueryProps {
+interface SubscribersOnlyProps {
   number?: number;
+  loading: boolean;
 }
 
-interface CancelSubscriptionProps extends QueryProps, SubscriptionOperation {
+interface CancelSubscriptionProps extends SubscriptionOperation {
   active?: boolean;
+  loading: boolean;
 }
 
 interface SubscriptionNavigationProps extends CancelSubscriptionProps {
@@ -49,3 +57,4 @@ interface SubscriptionProps extends SubscriptionOperation {}
 export { SubscriptionsOnlyResult, SubscriptionOperation, SubscribersOnlyProps };
 export { SubscriptionQueryResult, CancelSubscriptionProps };
 export { SubscriptionNavigationProps, SubscriptionProps };
+export { CancelSubscriptionViewState };
