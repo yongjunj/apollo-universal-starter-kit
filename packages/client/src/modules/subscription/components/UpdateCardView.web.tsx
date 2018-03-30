@@ -6,10 +6,10 @@ import { PageLayout } from '../../common/components/web';
 
 import SubscriptionCardForm from './SubscriptionCardForm.web';
 import settings from '../../../../../../settings';
-import { CardInfoProps, UpdateCardFn, CardOptions } from '../types';
+import { UpdateCardProps, UpdateCardFn, CardOptions } from '../types';
 import { Error } from '../../../../../common/types';
 
-export default class UpdateCardView extends React.Component<CardInfoProps, any> {
+export default class UpdateCardView extends React.Component<UpdateCardProps, any> {
   public onSubmit = (updateCard: UpdateCardFn) => async (values: CardOptions) => {
     const result: any = await updateCard(values);
 

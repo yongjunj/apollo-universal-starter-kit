@@ -1,7 +1,7 @@
 import React from 'react';
 import { compose } from 'react-apollo';
 
-import CardInfoView from '../components/CardInfoView';
+import CardInfoView from '../components/CardInfoView.web';
 
 import { withCardInfo } from '../graphql';
 import { CardInfoProps } from '../types';

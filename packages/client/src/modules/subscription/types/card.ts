@@ -17,12 +17,17 @@ interface CardOptions extends Card {
 type UpdateCardFn = (options: CardOptions) => Promise<boolean | Errors>;
 
 /* --- COMPONENT PROPS --- */
-interface CardInfoProps extends Card, QueryProps {}
+interface CardInfoProps extends Card, CardOperation {
+  loading: boolean;
+}
+
+// tslint:disable-next-line:no-empty-interface
+interface UpdateCardProps extends CardOperation {}
 /**
  * Mutation props
  */
 interface CardOperation {
-  updateCard: UpdateCardFn;
+  updateCard?: UpdateCardFn;
 }
 
 /**
@@ -33,5 +38,5 @@ interface CardQueryResult {
 }
 
 export { UpdateCardFn };
-export { CardInfoProps, CardOptions };
+export { CardInfoProps, CardOptions, UpdateCardProps };
 export { CardOperation, CardQueryResult };

@@ -9,7 +9,7 @@ import { withSubscribing } from '../graphql';
 import settings from '../../../../../../settings';
 
 // react-stripe-elements will not render on the server.
-class Subscription extends React.Component {
+class Subscription extends React.Component<any, any> {
   public render() {
     return (
       <div>

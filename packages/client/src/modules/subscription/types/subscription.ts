@@ -15,8 +15,8 @@ type Cancel = () => Promise<boolean | Errors>;
  * Mutation props
  */
 interface SubscriptionOperation {
-  subscribe: UpdateCardFn;
-  cancel: Cancel;
+  subscribe?: UpdateCardFn;
+  cancel?: Cancel;
 }
 
 /**
@@ -30,6 +30,11 @@ interface CancelSubscriptionProps extends QueryProps, SubscriptionOperation {
   active?: boolean;
 }
 
+interface SubscriptionNavigationProps extends CancelSubscriptionProps {
+  children?: any;
+  component?: any;
+}
+
 interface SubscriptionsOnlyResult {
   subscribersOnlyNumber: SubscribersOnlyProps;
 }
@@ -38,5 +43,9 @@ interface SubscriptionQueryResult {
   subscription: CancelSubscriptionProps;
 }
 
+// tslint:disable-next-line:no-empty-interface
+interface SubscriptionProps extends SubscriptionOperation {}
+
 export { SubscriptionsOnlyResult, SubscriptionOperation, SubscribersOnlyProps };
 export { SubscriptionQueryResult, CancelSubscriptionProps };
+export { SubscriptionNavigationProps, SubscriptionProps };
