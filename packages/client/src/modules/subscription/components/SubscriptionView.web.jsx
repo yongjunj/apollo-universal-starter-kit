@@ -18,7 +18,7 @@ export default class SubscriptionView extends React.Component {
   onSubmit = subscribe => async values => {
     const result = await subscribe(values);
 
-    if (result.errors) {
+    if (result && result.errors) {
       let submitError = {
         _error: 'Transaction failed!'
       };
