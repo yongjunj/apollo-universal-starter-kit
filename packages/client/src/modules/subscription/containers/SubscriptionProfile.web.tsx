@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CardInfo from './CardInfo.web';
-import CancelSubscription from './CancelSubscription';
+import CancelSubscription from './CancelSubscription.web';
 
 const SubscriptionProfile = () => {
   return (

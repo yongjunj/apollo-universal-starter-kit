@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, compose } from 'react-apollo';
+import { compose } from 'react-apollo';
 import { StripeProvider } from 'react-stripe-elements';
 
 import SubscriptionView from '../components/SubscriptionView.web';

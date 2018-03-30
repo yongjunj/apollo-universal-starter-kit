@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, compose } from 'react-apollo';
+import { compose } from 'react-apollo';
 
 import SubscribersOnlyView from '../components/SubscribersOnlyView';
 import { SubscribersOnlyProps } from '../types';

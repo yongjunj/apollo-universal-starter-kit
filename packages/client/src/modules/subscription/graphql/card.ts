@@ -43,6 +43,6 @@ const withCardInfo = (Component: any) =>
         brand: subscriptionCardInfo && subscriptionCardInfo.brand
       };
     }
-  });
+  })(Component);
 
 export { withCardUpdating, withCardInfo };
