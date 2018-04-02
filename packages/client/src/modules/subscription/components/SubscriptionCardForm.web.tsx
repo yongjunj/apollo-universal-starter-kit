@@ -38,7 +38,7 @@ class SubscriptionCardForm extends React.Component<CardFormProps & FormikProps<C
 
 const SubscriptionFormWithFormik = withFormik<CardFormProps, CardValues>({
   mapPropsToValues: () => ({ name: '' }),
-  async handleSubmit(values, { resetForm, props }) {
+  async handleSubmit(values, { props }) {
     const onSubmitForm = async ({ name }: any) => {
       const { stripe, onSubmit } = props;
       const { token, error } = await stripe.createToken({ name });
@@ -56,7 +56,6 @@ const SubscriptionFormWithFormik = withFormik<CardFormProps, CardValues>({
       });
     };
     await onSubmitForm(values);
-    resetForm({ name: '' });
   },
   validate: values => validate(values),
   displayName: 'SubscriptionForm', // helps with React DevTools,
