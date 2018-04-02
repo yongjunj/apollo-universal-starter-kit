@@ -1,5 +1,4 @@
 import React from 'react';
-import { compose } from 'react-apollo';
 import { StripeProvider } from 'react-stripe-elements';
 
 import UpdateCardView from '../components/UpdateCardView.web';
@@ -27,6 +26,6 @@ class UpdateCard extends React.Component<UpdateCardProps, any> {
   }
 }
 
-const UpdateCardWithApollo = compose(withCardUpdating)(UpdateCard);
+const UpdateCardWithApollo = withCardUpdating(UpdateCard);
 
 export default UpdateCardWithApollo;

@@ -1,5 +1,4 @@
 import React from 'react';
-import { compose } from 'react-apollo';
 
 import CardInfoView from '../components/CardInfoView.web';
 
@@ -12,6 +11,6 @@ const CardInfo = ({ loading, expiryMonth, expiryYear, last4, brand }: CardInfoPr
   );
 };
 
-const CardInfoWithApollo = compose(withCardInfo)(CardInfo);
+const CardInfoWithApollo = withCardInfo(CardInfo);
 
 export default CardInfoWithApollo;

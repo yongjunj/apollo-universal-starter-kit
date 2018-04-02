@@ -1,5 +1,4 @@
 import React from 'react';
-import { compose } from 'react-apollo';
 import { StripeProvider } from 'react-stripe-elements';
 
 import SubscriptionView from '../components/SubscriptionView.web';
@@ -25,6 +24,6 @@ class Subscription extends React.Component<any, any> {
   }
 }
 
-const SubscriptionViewWithApollo = compose(withSubscribing)(Subscription);
+const SubscriptionViewWithApollo = withSubscribing(Subscription);
 
 export default SubscriptionViewWithApollo;

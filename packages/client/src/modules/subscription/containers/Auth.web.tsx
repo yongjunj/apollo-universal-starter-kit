@@ -1,5 +1,4 @@
 import React from 'react';
-import { graphql, compose } from 'react-apollo';
 import { Redirect } from 'react-router-dom';
 
 import { withSubscription } from '../graphql';
@@ -11,7 +10,7 @@ const SubscriberNav = ({ loading, active, children, ...rest }: SubscriptionNavig
   return <AuthNav {...rest}>{loading || !active ? null : children}</AuthNav>;
 };
 
-const SubscriberNavWithApollo = compose(withSubscription)(SubscriberNav);
+const SubscriberNavWithApollo = withSubscription(SubscriberNav);
 
 const SubscribeRedirect = () => <Redirect to="/subscription" />;
 const LoadingComponent = () => <div>Loading...</div>;
