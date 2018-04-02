@@ -5,10 +5,8 @@ import SubscribersOnlyView from '../components/SubscribersOnlyView.web';
 import { SubscribersOnlyProps } from '../types';
 import { withSubscribersOnly } from '../graphql';
 
-// TODO Fix ts-lint error
-// tslint:disable-next-line:variable-name
-const SubscribersOnly = ({ loading, number }: SubscribersOnlyProps) => (
-  <SubscribersOnlyView loading={loading} number={number} />
+const SubscribersOnly = ({ loading, randomNumber }: SubscribersOnlyProps) => (
+  <SubscribersOnlyView loading={loading} randomNumber={randomNumber} />
 );
 
 const SubscribersOnlyWithApollo = compose(withSubscribersOnly)(SubscribersOnly);

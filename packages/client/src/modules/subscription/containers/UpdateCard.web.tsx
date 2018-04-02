@@ -4,12 +4,14 @@ import { StripeProvider } from 'react-stripe-elements';
 
 import UpdateCardView from '../components/UpdateCardView.web';
 
+import { UpdateCardProps } from '../types';
+
 import { withCardUpdating } from '../graphql';
 
 import settings from '../../../../../../settings';
 
 // react-stripe-elements will not render on the server.
-class UpdateCard extends React.Component {
+class UpdateCard extends React.Component<UpdateCardProps, any> {
   public render() {
     return (
       <div>

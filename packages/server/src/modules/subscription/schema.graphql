@@ -11,7 +11,7 @@ type UserSubscriptionCardInfo {
 }
 
 type SubscriberNumber {
-    number: Int
+    randomNumber: Int
 }
 
 extend type Query {

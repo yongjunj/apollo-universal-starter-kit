@@ -2,10 +2,6 @@ import { QueryProps } from 'react-apollo';
 import { Errors } from '../../../../../common/types';
 import { UpdateCardFn, CardOptions } from './card';
 
-/* --- ENTITIES --- */
-// tslint:disable-next-line:no-empty-interface
-interface SubscriptionOptions extends CardOptions {}
-
 /* ---  TYPES --- */
 type Cancel = () => Promise<boolean | Errors>;
 
@@ -28,9 +24,8 @@ interface SubscriptionOperation {
 /**
  * Query props
  */
-interface SubscribersOnlyProps {
-  number?: number;
-  loading: boolean;
+interface SubscriptionQueryResult {
+  subscription: CancelSubscriptionProps;
 }
 
 interface CancelSubscriptionProps extends SubscriptionOperation {
@@ -43,12 +38,13 @@ interface SubscriptionNavigationProps extends CancelSubscriptionProps {
   component?: any;
 }
 
-interface SubscriptionsOnlyResult {
-  subscribersOnlyNumber: SubscribersOnlyProps;
+interface SubscribersOnlyProps {
+  randomNumber?: number;
+  loading: boolean;
 }
 
-interface SubscriptionQueryResult {
-  subscription: CancelSubscriptionProps;
+interface SubscriptionsOnlyResult {
+  subscribersOnlyNumber: SubscribersOnlyProps;
 }
 
 // tslint:disable-next-line:no-empty-interface

@@ -48,7 +48,7 @@ const withSubscribersOnly = (Component: any) =>
   graphql(NUMBER_QUERY, {
     options: { fetchPolicy: 'network-only' },
     props({ data: { loading, subscribersOnlyNumber } }: OptionProps<any, SubscriptionsOnlyResult>) {
-      return { loading, number: subscribersOnlyNumber && subscribersOnlyNumber.number };
+      return { loading, randomNumber: subscribersOnlyNumber && subscribersOnlyNumber.randomNumber };
     }
   })(Component);
 
