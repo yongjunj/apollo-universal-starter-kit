@@ -1,5 +1,4 @@
 import React from 'react';
-import { compose } from 'react-apollo';
 
 import ContactView from '../components/ContactView.web';
 import { ContactProps } from '../types';
@@ -11,4 +10,4 @@ class ContactComponent extends React.Component<ContactProps, any> {
   }
 }
 
-export default compose(withContactSending)(ContactComponent);
+export default withContactSending(ContactComponent);
