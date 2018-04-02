@@ -22,15 +22,15 @@ interface SubscriptionOperation {
 }
 
 /**
- * Query props
+ * Component/container props
  */
-interface SubscriptionQueryResult {
-  subscription: CancelSubscriptionProps;
+interface SubscribersOnlyProps {
+  randomNumber?: number;
+  loading: boolean;
 }
 
-interface CancelSubscriptionProps extends SubscriptionOperation {
+interface CancelSubscriptionProps extends SubscriptionOperation, SubscribersOnlyProps {
   active?: boolean;
-  loading: boolean;
 }
 
 interface SubscriptionNavigationProps extends CancelSubscriptionProps {
@@ -38,17 +38,19 @@ interface SubscriptionNavigationProps extends CancelSubscriptionProps {
   component?: any;
 }
 
-interface SubscribersOnlyProps {
-  randomNumber?: number;
-  loading: boolean;
+// tslint:disable-next-line:no-empty-interface
+interface SubscriptionProps extends SubscriptionOperation {}
+
+/**
+ * Query props
+ */
+interface SubscriptionQueryResult {
+  subscription: CancelSubscriptionProps;
 }
 
 interface SubscriptionsOnlyResult {
   subscribersOnlyNumber: SubscribersOnlyProps;
 }
-
-// tslint:disable-next-line:no-empty-interface
-interface SubscriptionProps extends SubscriptionOperation {}
 
 export { SubscriptionsOnlyResult, SubscriptionOperation, SubscribersOnlyProps };
 export { SubscriptionQueryResult, CancelSubscriptionProps };

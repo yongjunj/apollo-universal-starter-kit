@@ -9,6 +9,10 @@ interface Card {
   brand?: string;
 }
 
+interface CardValues {
+  name: string;
+}
+
 interface CardOptions extends Card {
   token: string;
 }
@@ -17,13 +21,6 @@ interface CardOptions extends Card {
 type UpdateCardFn = (options: CardOptions) => Promise<boolean | Errors>;
 
 /* --- COMPONENT PROPS --- */
-interface CardInfoProps extends Card, CardOperation {
-  loading: boolean;
-}
-
-interface CardValues {
-  name: string;
-}
 
 /**
  * Mutation props
@@ -37,6 +34,13 @@ interface CardOperation {
  */
 interface CardQueryResult {
   subscriptionCardInfo: Card;
+}
+
+/**
+ * Component/container props
+ */
+interface CardInfoProps extends Card, CardOperation {
+  loading: boolean;
 }
 
 // tslint:disable-next-line:no-empty-interface
