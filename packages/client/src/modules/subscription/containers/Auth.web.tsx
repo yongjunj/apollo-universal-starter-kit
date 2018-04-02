@@ -14,9 +14,12 @@ const SubscriberNav = ({ loading, active, children, ...rest }: SubscriptionNavig
 const SubscriberNavWithApollo = compose(withSubscription)(SubscriberNav);
 
 const SubscribeRedirect = () => <Redirect to="/subscription" />;
+const LoadingComponent = () => <div>Loading...</div>;
 
 const SubscriberRoute = ({ loading, active, component, ...rest }: SubscriptionNavigationProps) => {
-  return <AuthRoute component={!loading && active ? component : SubscribeRedirect} {...rest} />;
+  return (
+    <AuthRoute component={loading ? LoadingComponent : !loading && active ? component : SubscribeRedirect} {...rest} />
+  );
 };
 
 const SubscriberRouteWithApollo: any = withSubscription(SubscriberRoute);
