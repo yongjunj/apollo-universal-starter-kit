@@ -52,14 +52,14 @@ const withSubscribersOnly = (Component: any) =>
     }
   })(Component);
 
-const withSubscription = (Component: any) =>
+const withSubscription = (Component: any, isSkip?: boolean) =>
   graphql(SUBSCRIPTION_QUERY, {
     // i'm not sure why but this query causes SSR to hang. it seems to have
     // to do with the fact that this query exists in other places in the tree.
     // possibly having to do with the query name, as if you duplicate the query
     // file and change the query name to `SubscriptionDataTwo`, then it works.
     // skipping for now on server.
-    skip: __SERVER__,
+    skip: isSkip,
     props({ data: { loading, subscription } }: OptionProps<any, SubscriptionQueryResult>) {
       return {
         loading,

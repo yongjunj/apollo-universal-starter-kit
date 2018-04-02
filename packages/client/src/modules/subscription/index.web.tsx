@@ -5,7 +5,7 @@ import { MenuItem } from '../../modules/common/components/web';
 import Subscription from './containers/Subscription.web';
 import SubscribersOnly from './containers/SubscribersOnly.web';
 import UpdateCard from './containers/UpdateCard.web';
-import { SubscriberRoute } from './containers/Auth';
+import { SubscriberRoute } from './containers/Auth.web';
 import settings from '../../../../../settings';
 
 import Feature from '../connector.web';

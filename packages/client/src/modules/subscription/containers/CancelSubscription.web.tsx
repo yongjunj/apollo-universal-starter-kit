@@ -10,6 +10,6 @@ const CancelSubscription = ({ loading, active, cancel }: CancelSubscriptionProps
   return <CancelSubscriptionView loading={__SERVER__ ? true : loading} active={active} cancel={cancel} />;
 };
 
-const CancelSubscriptionWithApollo = compose(withSubscription, withSubscriptionCanceling)(CancelSubscription);
+const CancelSubscriptionWithApollo = withSubscriptionCanceling(withSubscription(CancelSubscription, __SERVER__));
 
 export default CancelSubscriptionWithApollo;

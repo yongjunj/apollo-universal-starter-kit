@@ -12,7 +12,7 @@ type Cancel = () => Promise<boolean | Errors>;
 /* --- COMPONENT STATE --- */
 interface CancelSubscriptionViewState {
   cancelling: boolean;
-  errors: any;
+  errors: null | string;
 }
 
 /* --- COMPONENT PROPS --- */
