@@ -141,8 +141,8 @@ export default pubsub => ({
           }
 
           const user = await context.User.getUser(input.id);
-
-          return { user };
+          throw new Error('Test!');
+          //return { user };
         } catch (e) {
           return { errors: e };
         }
